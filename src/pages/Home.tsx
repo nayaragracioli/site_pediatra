@@ -260,15 +260,11 @@ export default function Home() {
                 </a>
               </p>
               <SocialLinks className="mt-5" />
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6">
                 <ScheduleLink className="btn-primary">
                   <WhatsAppIcon />
                   Agendar consulta
                 </ScheduleLink>
-                <Link to="/atendimentos" className="btn-outline">
-                  Saiba mais
-                  <ArrowRight size={18} aria-hidden="true" />
-                </Link>
               </div>
             </div>
             <a
