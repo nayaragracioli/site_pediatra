@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Baby, MapPin, Stethoscope, Utensils, Video } from "lucide-react";
 import photo from "../assets/dr-cicero.jpg";
+import sobrePhoto from "../assets/dr-cicero-sobre.jpg";
 import BookList from "../components/BookList";
 import FamilyReviews from "../components/FamilyReviews";
 import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
@@ -87,11 +88,13 @@ export default function Home() {
 
       <section id="sobre" className="scroll-mt-28 bg-band">
         <div className="container-max grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <img
-            src={photo}
-            alt=""
-            className="mx-auto hidden aspect-[4/5] w-full max-w-sm rounded-[2rem] object-cover object-top shadow-soft lg:block"
-          />
+          <div className="mx-auto w-full max-w-sm rounded-[2rem] border border-mint/40 bg-white p-3 shadow-soft lg:max-w-none">
+            <img
+              src={sobrePhoto}
+              alt={DOCTOR_ALT}
+              className="aspect-[3/4] w-full rounded-[1.5rem] object-cover object-top"
+            />
+          </div>
           <div>
             <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Sobre</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">{DOCTOR_NAME}</h2>
@@ -260,15 +263,11 @@ export default function Home() {
                 </a>
               </p>
               <SocialLinks className="mt-5" />
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6">
                 <ScheduleLink className="btn-primary">
                   <WhatsAppIcon />
                   Agendar consulta
                 </ScheduleLink>
-                <Link to="/atendimentos" className="btn-outline">
-                  Saiba mais
-                  <ArrowRight size={18} aria-hidden="true" />
-                </Link>
               </div>
             </div>
             <a
