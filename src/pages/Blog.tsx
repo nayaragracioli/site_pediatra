@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
 import { posts } from "../data/posts";
 import { formatDate, publicUrl } from "../data/site";
 
@@ -22,11 +23,10 @@ export default function Blog() {
 
   return (
     <main className="container-max py-12 md:py-16">
-      <header className="max-w-3xl">
+      <BackButton />
+      <header className="mt-6 max-w-3xl">
         <h1 className="font-serif text-4xl font-semibold text-primary md:text-5xl">Blog da Criança</h1>
-        <p className="mt-4 text-lg leading-relaxed text-ink">
-          Textos do Dr. Cícero Alaor Kluppel, publicados originalmente em cicerokluppel.com.
-        </p>
+        <p className="mt-4 text-lg leading-relaxed text-ink">Textos do Dr. Cícero Alaor Kluppel.</p>
       </header>
 
       <div className="mt-8 max-w-2xl">

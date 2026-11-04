@@ -1,11 +1,15 @@
 import photo from "../assets/dr-cicero.jpg";
-import { capitulo, livros, trajetoria } from "../data/profile";
+import BackButton from "../components/BackButton";
+import { livros, trajetoria } from "../data/profile";
 import { DOCTOR_ALT, LATTES_URL } from "../data/site";
 
 export default function Sobre() {
   return (
     <main>
       <section className="container-max grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="lg:col-span-2">
+          <BackButton />
+        </div>
         <div>
           <h1 className="font-serif text-4xl font-semibold text-primary md:text-5xl">
             Sobre:
@@ -31,8 +35,8 @@ export default function Sobre() {
       </section>
 
       <section id="livros" className="container-max scroll-mt-28 pb-8">
-        <h2 className="font-serif text-4xl font-semibold text-primary">Livros e capítulo</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="font-serif text-4xl font-semibold text-primary">Livros</h2>
+        <div className="mt-8 grid gap-8 sm:grid-cols-2">
           {livros.map((livro) => (
             <article key={livro.title} className="flex flex-col">
               <img
@@ -43,12 +47,6 @@ export default function Sobre() {
               <h3 className="mt-4 text-center font-serif text-xl leading-snug text-primary">{livro.title}</h3>
             </article>
           ))}
-          <article className="panel-wash flex min-h-80 items-center justify-center rounded-[2rem] p-8 text-center text-white shadow-soft">
-            <h3 className="font-serif text-2xl leading-snug">
-              Capítulo:
-              <span className="mt-3 block">{capitulo}</span>
-            </h3>
-          </article>
         </div>
       </section>
     </main>

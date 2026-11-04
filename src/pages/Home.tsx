@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Baby, MapPin, Stethoscope, Utensils, Video } from "lucide-react";
 import photo from "../assets/dr-cicero.jpg";
 import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
+import SocialLinks from "../components/SocialLinks";
 import { topics } from "../data/dificuldades";
 import { posts } from "../data/posts";
-import { capitulo, livros, trajetoria } from "../data/profile";
+import { livros, trajetoria } from "../data/profile";
 import {
   ADDRESS_LINES,
   CRM,
@@ -28,28 +29,24 @@ const services = [
     title: "Dificuldades alimentares e seletividade",
     text: "Avaliação de crianças com seletividade alimentar, recusa alimentar e dificuldades no ganho de peso.",
     to: "/dificuldades-alimentares",
-    cta: "Saiba mais",
     icon: Utensils,
   },
   {
     title: "Transtorno do Espectro Autista (TEA)",
     text: autismo.paragraphs[0],
     to: "/dificuldades-alimentares/autismo",
-    cta: "Saiba mais",
     icon: Stethoscope,
   },
   {
     title: "Puericultura e pediatria geral",
     text: "Consultas de puericultura e pediatria geral.",
     to: "/atendimentos",
-    cta: "Ver atendimentos",
     icon: Baby,
   },
   {
     title: "Teleconsulta",
     text: "Consultas presenciais em Curitiba e por teleconsulta. Atendimento para todas as regiões do Brasil.",
     to: "/atendimentos",
-    cta: "Ver atendimentos",
     icon: Video,
   },
 ];
@@ -57,7 +54,7 @@ const services = [
 export default function Home() {
   return (
     <main>
-      <section className="container-max grid items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <section id="inicio" className="container-max grid scroll-mt-28 items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
         <div className="space-y-6">
           <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
             {DOCTOR_ROLE} · {CRM}
@@ -86,7 +83,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="bg-band">
+      <section id="sobre" className="scroll-mt-28 bg-band">
         <div className="container-max grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <img
             src={photo}
@@ -95,7 +92,7 @@ export default function Home() {
           />
           <div>
             <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Sobre</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-primary md:text-4xl">{DOCTOR_NAME}</h2>
+            <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">{DOCTOR_NAME}</h2>
             <p className="mt-2 text-lg text-primary">
               {DOCTOR_ROLE} · {CRM}
             </p>
@@ -108,24 +105,41 @@ export default function Home() {
               ))}
             </ul>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link to="/sobre" className="btn-primary">
-                Ver trajetória
-              </Link>
               <a href={LATTES_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
                 Consultar curriculum LATTES
               </a>
+              <Link to="/sobre" className="btn-primary">
+                Saiba mais
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
             </div>
+          </div>
+        </div>
+
+        <div id="livros" className="container-max scroll-mt-28 pb-16 md:pb-20">
+          <h3 className="font-serif text-3xl font-semibold">Livros</h3>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            {livros.map((livro) => (
+              <article key={livro.title} className="flex flex-col">
+                <img
+                  src={livro.image}
+                  alt={livro.alt}
+                  className="book-shadow mx-auto h-72 w-auto max-w-full rounded-sm bg-white object-contain"
+                />
+                <h4 className="mt-4 text-center font-serif text-xl leading-snug">{livro.title}</h4>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="container-max py-16 md:py-20">
+      <section id="dificuldades" className="container-max scroll-mt-28 py-16 md:py-20">
         <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
             <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
               Dificuldades alimentares
             </p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-primary md:text-4xl">
+            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight md:text-4xl">
               Quando a alimentação se torna uma dificuldade
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink">
@@ -134,8 +148,8 @@ export default function Home() {
             <p className="mt-4 text-lg leading-relaxed text-ink">
               Uma avaliação cuidadosa permite identificar os fatores envolvidos e estabelecer um plano de acompanhamento individualizado, considerando as características da criança e de sua família.
             </p>
-            <Link to="/dificuldades-alimentares/quando-procurar" className="btn-outline mt-8">
-              Saiba mais sobre Dificuldades Alimentares
+            <Link to="/dificuldades-alimentares" className="btn-outline mt-8">
+              Saiba mais
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
@@ -152,10 +166,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-band-mint">
+      <section id="atendimentos" className="scroll-mt-28 bg-band-mint">
         <div className="container-max py-16 md:py-20">
           <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Atendimento</p>
-          <h2 className="mt-3 max-w-2xl font-serif text-3xl font-semibold text-primary md:text-4xl">
+          <h2 className="mt-3 max-w-2xl font-serif text-3xl font-semibold md:text-4xl">
             Consultas presenciais em Curitiba e por teleconsulta
           </h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -168,62 +182,79 @@ export default function Home() {
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-mint text-primary-deep">
                   <service.icon size={22} aria-hidden="true" />
                 </span>
-                <h3 className="mt-5 font-serif text-2xl font-semibold text-primary">{service.title}</h3>
+                <h3 className="mt-5 font-serif text-2xl font-semibold">{service.title}</h3>
                 <p className="mt-3 leading-relaxed text-ink">{service.text}</p>
                 <span className="mt-5 inline-flex items-center gap-2 font-sans text-sm font-semibold text-primary">
-                  {service.cta}
+                  Saiba mais
                   <ArrowRight size={16} className="transition group-hover:translate-x-0.5" aria-hidden="true" />
                 </span>
               </Link>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="container-max py-16 md:py-20">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Publicações</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-primary md:text-4xl">Livros e capítulo</h2>
+          <div className="mt-12 overflow-hidden rounded-[2rem] bg-white shadow-soft lg:grid lg:grid-cols-2">
+            <div className="p-7 md:p-10">
+              <h3 className="font-serif text-3xl font-semibold">Atendimentos e contato</h3>
+              <h4 className="mt-6 font-serif text-2xl">Atendimento presencial</h4>
+              <p className="mt-2 text-lg leading-relaxed text-ink">
+                {ADDRESS_LINES.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+              <a
+                href={MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 text-primary underline"
+              >
+                <MapPin size={18} aria-hidden="true" />
+                Ver no mapa
+              </a>
+              <h4 className="mt-6 font-serif text-2xl">Teleatendimento</h4>
+              <p className="mt-2 text-lg text-ink">Atendimento para todas as regiões do Brasil</p>
+              <p className="mt-6 text-lg text-ink">
+                Telefone e WhatsApp{" "}
+                <a href={PHONE_TEL} className="text-primary underline">
+                  {PHONE_DISPLAY}
+                </a>
+              </p>
+              <SocialLinks className="mt-5" />
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <ScheduleLink className="btn-primary">
+                  <WhatsAppIcon />
+                  Agendar consulta
+                </ScheduleLink>
+                <Link to="/atendimentos" className="btn-outline">
+                  Saiba mais
+                  <ArrowRight size={18} aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+            <a
+              href={MAP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="panel-wash flex min-h-72 flex-col items-center justify-center gap-4 p-8 text-center text-white"
+            >
+              <MapPin size={42} aria-hidden="true" className="text-warm" />
+              <span className="font-serif text-3xl">Água Verde, Curitiba</span>
+              <span className="font-sans text-sm underline">Ver no mapa</span>
+            </a>
           </div>
-          <Link to="/sobre" state={{ scrollTo: "livros" }} className="btn-outline">
-            Ver livros e capítulo
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {livros.map((livro) => (
-            <Link key={livro.title} to="/sobre" state={{ scrollTo: "livros" }} className="group flex flex-col">
-              <img
-                src={livro.image}
-                alt={livro.alt}
-                className="book-shadow mx-auto h-72 w-auto max-w-full rounded-sm bg-white object-contain transition group-hover:-translate-y-1"
-              />
-              <h3 className="mt-4 text-center font-serif text-xl leading-snug text-primary">{livro.title}</h3>
-            </Link>
-          ))}
-          <Link
-            to="/sobre"
-            state={{ scrollTo: "livros" }}
-            className="panel-wash flex h-full min-h-72 items-center justify-center rounded-[2rem] p-8 text-center text-white shadow-soft transition hover:-translate-y-1"
-          >
-            <h3 className="font-serif text-2xl leading-snug">
-              Capítulo:
-              <span className="mt-3 block">{capitulo}</span>
-            </h3>
-          </Link>
         </div>
       </section>
 
-      <section className="bg-band">
+      <section id="blog" className="scroll-mt-28 bg-band">
         <div className="container-max py-16 md:py-20">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Blog da Criança</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold text-primary md:text-4xl">Textos recentes</h2>
+              <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">Textos recentes</h2>
             </div>
             <Link to="/blog" className="btn-outline bg-transparent">
-              Ver todos os textos
+              Saiba mais
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
@@ -238,7 +269,7 @@ export default function Home() {
                 <p className="font-sans text-xs uppercase tracking-wider text-primary-deep">
                   {post.tema} · {formatDate(post.date)}
                 </p>
-                <h3 className="mt-2 font-serif text-2xl leading-snug text-primary">
+                <h3 className="mt-2 font-serif text-2xl leading-snug">
                   <Link to={`/blog/${post.slug}`} className="hover:underline">
                     {post.title}
                   </Link>
@@ -250,58 +281,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="container-max py-16 md:py-20">
-        <div className="overflow-hidden rounded-[2rem] bg-white shadow-soft lg:grid lg:grid-cols-2">
-          <div className="p-7 md:p-10">
-            <h2 className="font-serif text-3xl font-semibold text-primary md:text-4xl">Atendimentos e contato</h2>
-            <h3 className="mt-6 font-serif text-2xl text-primary">Atendimento presencial</h3>
-            <p className="mt-2 text-lg leading-relaxed text-ink">
-              {ADDRESS_LINES.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </p>
-            <a
-              href={MAP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 text-primary underline"
-            >
-              <MapPin size={18} aria-hidden="true" />
-              Ver no mapa
-            </a>
-            <h3 className="mt-6 font-serif text-2xl text-primary">Teleatendimento</h3>
-            <p className="mt-2 text-lg text-ink">Atendimento para todas as regiões do Brasil</p>
-            <p className="mt-6 text-lg text-ink">
-              Telefone e WhatsApp{" "}
-              <a href={PHONE_TEL} className="text-primary underline">
-                {PHONE_DISPLAY}
-              </a>
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <ScheduleLink className="btn-primary">
-                <WhatsAppIcon />
-                Agendar consulta
-              </ScheduleLink>
-              <Link to="/atendimentos" className="btn-outline">
-                Atendimentos e Contatos
-              </Link>
-            </div>
-          </div>
-          <a
-            href={MAP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="panel-wash flex min-h-72 flex-col items-center justify-center gap-4 p-8 text-center text-white"
-          >
-            <MapPin size={42} aria-hidden="true" className="text-warm" />
-            <span className="font-serif text-3xl">Água Verde, Curitiba</span>
-            <span className="font-sans text-sm underline">Ver no mapa</span>
-          </a>
         </div>
       </section>
     </main>

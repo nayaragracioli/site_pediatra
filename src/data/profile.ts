@@ -22,5 +22,3 @@ export const livros = [
     alt: "Capa do livro O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
   },
 ];
-
-export const capitulo = "Dificuldades alimentares na Síndrome de Down";

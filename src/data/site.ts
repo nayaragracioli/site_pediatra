@@ -16,14 +16,6 @@ export const ADDRESS_LINES = [
   "CEP 80240-031",
 ];
 
-export const NAV = [
-  { to: "/", label: "Início", end: true },
-  { to: "/dificuldades-alimentares", label: "Dificuldades Alimentares", end: false },
-  { to: "/sobre", label: "Sobre", end: false },
-  { to: "/atendimentos", label: "Atendimentos e Contatos", end: false },
-  { to: "/blog", label: "Blog da criança", end: false },
-] as const;
-
 export function publicUrl(path: string) {
   const base = import.meta.env.BASE_URL || "/";
   return `${base}${path.replace(/^\//, "")}`;

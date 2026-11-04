@@ -13,6 +13,7 @@ import Sobre from "./pages/Sobre";
 import Atendimentos from "./pages/Atendimentos";
 import Blog from "./pages/Blog";
 import Article from "./pages/Article";
+import { scrollToSection } from "./data/sections";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -20,11 +21,11 @@ function ScrollToTop() {
   useEffect(() => {
     const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
     if (target) {
-      document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+      requestAnimationFrame(() => scrollToSection(target));
       return;
     }
     window.scrollTo(0, 0);
-  }, [location]);
+  }, [location.pathname, location.state]);
 
   return null;
 }
