@@ -157,6 +157,58 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="blog" className="scroll-mt-28 bg-band">
+        <div className="container-max py-16 md:py-20">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Blog da Criança</p>
+              <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">Textos recentes</h2>
+            </div>
+            <Link to="/blog" className="btn-outline bg-transparent">
+              Saiba mais
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {recentPosts.map((post) => (
+              <article key={post.slug} className="flex flex-col rounded-[1.75rem] bg-white p-6 shadow-soft">
+                {post.image && (
+                  <Link to={`/blog/${post.slug}`} className="mb-5 block overflow-hidden rounded-2xl">
+                    <img src={publicUrl(post.image)} alt="" className="aspect-[4/3] w-full object-cover" />
+                  </Link>
+                )}
+                <p className="font-sans text-xs uppercase tracking-wider text-primary-deep">
+                  {post.tema} · {formatDate(post.date)}
+                </p>
+                <h3 className="mt-2 font-serif text-2xl leading-snug">
+                  <Link to={`/blog/${post.slug}`} className="hover:underline">
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="mt-3 flex-1 leading-relaxed text-ink">{post.excerpt}</p>
+                <Link to={`/blog/${post.slug}`} className="mt-5 font-sans text-sm font-semibold text-primary hover:underline">
+                  Ler texto
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="avaliacoes-titulo" className="container-max scroll-mt-28 py-16 md:py-20">
+        <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Google</p>
+        <h2 id="avaliacoes-titulo" className="mt-3 font-serif text-3xl font-semibold md:text-4xl">
+          O que dizem as famílias
+        </h2>
+        <p className="mt-3 max-w-2xl text-lg text-ink">Avaliações reais de pacientes no Google</p>
+        <div className="mt-8">
+          <FamilyReviews />
+        </div>
+        <a href={MAP_URL} target="_blank" rel="noopener noreferrer" className="btn-outline mt-6">
+          Ver todas as avaliações no Google
+        </a>
+      </section>
+
       <section id="atendimentos" className="scroll-mt-28 bg-band-mint">
         <div className="container-max py-16 md:py-20">
           <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Atendimento</p>
@@ -235,58 +287,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
-
-      <section id="blog" className="scroll-mt-28 bg-band">
-        <div className="container-max py-16 md:py-20">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Blog da Criança</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">Textos recentes</h2>
-            </div>
-            <Link to="/blog" className="btn-outline bg-transparent">
-              Saiba mais
-              <ArrowRight size={18} aria-hidden="true" />
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {recentPosts.map((post) => (
-              <article key={post.slug} className="flex flex-col rounded-[1.75rem] bg-white p-6 shadow-soft">
-                {post.image && (
-                  <Link to={`/blog/${post.slug}`} className="mb-5 block overflow-hidden rounded-2xl">
-                    <img src={publicUrl(post.image)} alt="" className="aspect-[4/3] w-full object-cover" />
-                  </Link>
-                )}
-                <p className="font-sans text-xs uppercase tracking-wider text-primary-deep">
-                  {post.tema} · {formatDate(post.date)}
-                </p>
-                <h3 className="mt-2 font-serif text-2xl leading-snug">
-                  <Link to={`/blog/${post.slug}`} className="hover:underline">
-                    {post.title}
-                  </Link>
-                </h3>
-                <p className="mt-3 flex-1 leading-relaxed text-ink">{post.excerpt}</p>
-                <Link to={`/blog/${post.slug}`} className="mt-5 font-sans text-sm font-semibold text-primary hover:underline">
-                  Ler texto
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="avaliacoes-titulo" className="container-max scroll-mt-28 py-16 md:py-20">
-        <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Google</p>
-        <h2 id="avaliacoes-titulo" className="mt-3 font-serif text-3xl font-semibold md:text-4xl">
-          O que dizem as famílias
-        </h2>
-        <p className="mt-3 max-w-2xl text-lg text-ink">Avaliações reais de pacientes no Google</p>
-        <div className="mt-8">
-          <FamilyReviews />
-        </div>
-        <a href={MAP_URL} target="_blank" rel="noopener noreferrer" className="btn-outline mt-6">
-          Ver todas as avaliações no Google
-        </a>
       </section>
     </main>
   );
