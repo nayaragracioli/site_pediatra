@@ -51,9 +51,6 @@
   .panel-wash {
     background-image: linear-gradient(145deg, #2f6f8f 0%, #1f4e66 100%);
   }
-  .decor-wash {
-    background-image: linear-gradient(145deg, #7cc4b0 0%, #2f6f8f 100%);
-  }
   .book-shadow {
     box-shadow: 8px 12px 24px rgba(22, 48, 68, 0.16);
   }

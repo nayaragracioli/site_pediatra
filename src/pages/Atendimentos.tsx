@@ -1,11 +1,14 @@
 import { MapPin } from "lucide-react";
+import BackButton from "../components/BackButton";
 import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
+import SocialLinks from "../components/SocialLinks";
 import { ADDRESS_LINES, MAP_URL, PHONE_DISPLAY, PHONE_TEL } from "../data/site";
 
 export default function Atendimentos() {
   return (
     <main className="container-max py-12 md:py-16">
-      <h1 className="font-serif text-4xl font-semibold text-primary md:text-5xl">Atendimentos e contato</h1>
+      <BackButton />
+      <h1 className="mt-6 font-serif text-4xl font-semibold text-primary md:text-5xl">Atendimentos e contato</h1>
 
       <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
         <div className="space-y-8 text-lg leading-relaxed">
@@ -41,6 +44,7 @@ export default function Atendimentos() {
               <WhatsAppIcon />
               Agendar pelo WhatsApp
             </ScheduleLink>
+            <SocialLinks className="mt-6" />
           </section>
         </div>
 

@@ -1,14 +1,23 @@
-import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
 import { getTopic, topics } from "../data/dificuldades";
 
 export default function Dificuldades() {
   const { topico } = useParams();
-  const selected = getTopic(topico);
+  const [currentId, setCurrentId] = useState(() => getTopic(topico).id);
+
+  useEffect(() => {
+    setCurrentId(getTopic(topico).id);
+  }, [topico]);
+
+  const selected = getTopic(currentId);
 
   return (
     <main>
-      <section className="container-max grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[1.15fr_0.7fr]">
-        <div className="space-y-5">
+      <section className="container-max py-12 md:py-16">
+        <BackButton />
+        <div className="mt-6 max-w-3xl space-y-5">
           <h1 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
             Dificuldades alimentares na infância
           </h1>
@@ -23,10 +32,6 @@ export default function Dificuldades() {
           </p>
           <p className="font-serif text-2xl font-semibold">As Dificuldades Alimentares têm tratamento</p>
         </div>
-        <div
-          aria-hidden="true"
-          className="decor-wash mx-auto hidden aspect-square w-full max-w-sm rounded-[2.5rem] lg:block"
-        />
       </section>
 
       <section className="container-max grid items-start gap-6 pb-8 lg:grid-cols-[minmax(16rem,22rem)_1fr] lg:pb-16">
@@ -34,26 +39,23 @@ export default function Dificuldades() {
           {topics.map((topic) => {
             const active = selected.id === topic.id;
             return (
-              <NavLink
+              <button
                 key={topic.id}
-                to={`/dificuldades-alimentares/${topic.id}`}
+                type="button"
                 role="tab"
                 aria-selected={active}
+                onClick={() => setCurrentId(topic.id)}
                 className={`rounded-full px-5 py-4 text-center font-serif text-lg leading-snug transition ${
                   active ? "bg-primary-deep text-white shadow-soft" : "bg-mint text-ink hover:bg-mint/80"
                 }`}
               >
                 {topic.label}
-              </NavLink>
+              </button>
             );
           })}
         </div>
 
-        <article
-          role="tabpanel"
-          aria-label={selected.title}
-          className="rounded-[2rem] bg-panel p-7 text-white shadow-soft md:p-10"
-        >
+        <article role="tabpanel" aria-label={selected.title} className="rounded-[2rem] bg-panel p-7 text-white shadow-soft md:p-10">
           <h2 className="font-serif text-2xl font-semibold leading-snug md:text-3xl">{selected.title}</h2>
           {selected.intro && <p className="mt-5 text-lg leading-relaxed">{selected.intro}</p>}
           {selected.bullets && (

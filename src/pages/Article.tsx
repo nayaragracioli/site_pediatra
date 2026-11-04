@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import photo from "../assets/dr-cicero.jpg";
+import BackButton from "../components/BackButton";
 import ScheduleLink from "../components/ScheduleLink";
 import { getPost, posts } from "../data/posts";
 import { DOCTOR_ALT, DOCTOR_NAME, formatDate, publicUrl } from "../data/site";
@@ -12,10 +12,8 @@ export default function Article() {
   if (!post) {
     return (
       <main className="container-max py-16">
-        <h1 className="font-serif text-3xl text-primary">Texto não encontrado</h1>
-        <Link to="/blog" className="mt-6 inline-block text-primary underline">
-          Voltar ao Blog da Criança
-        </Link>
+        <BackButton fallback="/blog" />
+        <h1 className="mt-6 font-serif text-3xl text-primary">Texto não encontrado</h1>
       </main>
     );
   }
@@ -24,10 +22,7 @@ export default function Article() {
 
   return (
     <main className="container-max py-12">
-      <Link to="/blog" className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-primary hover:underline">
-        <ArrowLeft size={16} aria-hidden="true" />
-        Voltar ao Blog da Criança
-      </Link>
+      <BackButton fallback="/blog" />
 
       <article className="mx-auto mt-8 max-w-3xl">
         <p className="font-sans text-xs uppercase tracking-wider text-primary/70">
@@ -48,14 +43,6 @@ export default function Article() {
         )}
 
         <div className="post-body mt-8 text-lg leading-relaxed text-ink" dangerouslySetInnerHTML={{ __html: post.html }} />
-
-        <p className="mt-10 text-sm text-primary/80">
-          Publicado originalmente em{" "}
-          <a href={post.originalUrl} target="_blank" rel="noopener noreferrer" className="underline">
-            cicerokluppel.com
-          </a>
-          .
-        </p>
       </article>
 
       <aside className="mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-[1.4fr_0.8fr]">
