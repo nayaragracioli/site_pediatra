@@ -106,14 +106,10 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8">
               <a href={LATTES_URL} target="_blank" rel="noopener noreferrer" className="btn-outline">
                 Consultar curriculum LATTES
               </a>
-              <Link to="/sobre" className="btn-primary">
-                Saiba mais
-                <ArrowRight size={18} aria-hidden="true" />
-              </Link>
             </div>
           </div>
         </div>
