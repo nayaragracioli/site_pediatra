@@ -36,7 +36,7 @@ export default function Footer() {
             ))}
             <li>
               <button type="button" onClick={() => goToSection("livros")} className="hover:underline">
-                Livros
+                Livros e capítulo
               </button>
             </li>
           </ul>
