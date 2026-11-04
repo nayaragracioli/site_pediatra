@@ -7,6 +7,18 @@ import ScheduleLink from "./ScheduleLink";
 import SocialLinks from "./SocialLinks";
 import { useGoToSection } from "./useGoToSection";
 
+function Brand({ onClick, compact = false }: { onClick: () => void; compact?: boolean }) {
+  return (
+    <button type="button" onClick={onClick} className="min-w-0 text-left leading-tight text-primary">
+      <span className={`block truncate font-serif font-semibold tracking-tight ${compact ? "text-[15px]" : "text-sm xl:text-base"}`}>
+        {DOCTOR_NAME}
+      </span>
+      <span className={`block truncate font-serif ${compact ? "text-xs" : "text-[12px] xl:text-[13px]"}`}>{DOCTOR_ROLE}</span>
+      <span className={`block truncate font-sans tracking-wide ${compact ? "text-[10px]" : "text-[10px] xl:text-[11px]"}`}>{CRM}</span>
+    </button>
+  );
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -23,43 +35,43 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b-[3px] border-line bg-background/95 backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-[1500px] flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 md:px-6 xl:flex-nowrap xl:gap-x-8 xl:px-8">
-        <button type="button" onClick={() => visit("inicio")} className="w-full shrink-0 text-left leading-tight text-primary xl:w-auto">
-          <span className="block whitespace-nowrap font-serif text-lg font-semibold tracking-tight xl:text-base 2xl:text-lg">
-            {DOCTOR_NAME}
-          </span>
-          <span className="block whitespace-nowrap font-serif text-sm xl:text-[13px]">{DOCTOR_ROLE}</span>
-          <span className="block whitespace-nowrap font-sans text-[11px] tracking-wide">{CRM}</span>
-        </button>
+      <div className="flex items-center justify-between gap-3 px-4 py-3.5 lg:hidden">
+        <Brand onClick={() => visit("inicio")} compact />
+        <div className="flex shrink-0 items-center gap-2">
+          <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs">Agendar consulta</ScheduleLink>
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 text-primary"
+            aria-expanded={open}
+            aria-controls="menu-mobile"
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="sr-only">{open ? "Fechar menu" : "Abrir menu"}</span>
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+      </div>
 
-        <nav className="ml-auto hidden items-center gap-x-6 whitespace-nowrap text-[15px] text-primary xl:flex 2xl:gap-x-8" aria-label="Principal">
+      <div className="mx-auto hidden w-full max-w-[1500px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-x-3 px-4 py-4 lg:grid xl:gap-x-6 xl:px-8">
+        <div className="justify-self-start">
+          <Brand onClick={() => visit("inicio")} />
+        </div>
+        <nav className="flex items-center justify-center gap-x-2.5 whitespace-nowrap text-[13px] text-primary xl:gap-x-4 xl:text-[15px]" aria-label="Principal">
           {SECTIONS.map((item) => (
             <button key={item.id} type="button" onClick={() => visit(item.id)} className="whitespace-nowrap hover:opacity-70">
               {item.label}
             </button>
           ))}
         </nav>
-
-        <div className="ml-auto flex shrink-0 items-center gap-3 xl:ml-0">
-          <SocialLinks className="hidden 2xl:flex" />
-          <ScheduleLink className="btn-primary whitespace-nowrap px-4 py-2.5 text-sm">
+        <div className="justify-self-end">
+          <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs xl:px-4 xl:py-2.5 xl:text-sm">
             Agendar consulta
           </ScheduleLink>
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/30 text-primary xl:hidden"
-            aria-expanded={open}
-            aria-controls="menu-mobile"
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span className="sr-only">{open ? "Fechar menu" : "Abrir menu"}</span>
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </div>
 
       {open && (
-        <nav id="menu-mobile" className="border-t border-primary/10 xl:hidden" aria-label="Principal">
+        <nav id="menu-mobile" className="border-t border-primary/10 lg:hidden" aria-label="Principal">
           <div className="container-max flex flex-col gap-1 py-3 text-primary">
             {SECTIONS.map((item) => (
               <button
