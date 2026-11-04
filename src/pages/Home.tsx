@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Baby, MapPin, Stethoscope, Utensils, Video } from "lucide-react";
 import photo from "../assets/dr-cicero.jpg";
-import GoogleReviews from "../components/GoogleReviews";
+import FamilyReviews from "../components/FamilyReviews";
 import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
 import SocialLinks from "../components/SocialLinks";
 import { topics } from "../data/dificuldades";
@@ -291,8 +291,8 @@ export default function Home() {
           O que dizem as famílias
         </h2>
         <p className="mt-3 max-w-2xl text-lg text-ink">Avaliações reais de pacientes no Google</p>
-        <div className="mt-8 overflow-hidden rounded-[1.75rem] bg-white p-4 shadow-soft sm:p-6">
-          <GoogleReviews />
+        <div className="mt-8">
+          <FamilyReviews />
         </div>
         <a href={MAP_URL} target="_blank" rel="noopener noreferrer" className="btn-outline mt-6">
           Ver todas as avaliações no Google
