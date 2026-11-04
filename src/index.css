@@ -4,21 +4,37 @@
   --font-serif: "Newsreader", serif;
   --font-sans: "Work Sans", sans-serif;
 
-  --color-background: #fbf8f3;
-  --color-primary: #a06050;
-  --color-primary-deep: #8a4e40;
+  --color-background: #f5f9fb;
+  --color-primary: #2f6f8f;
+  --color-primary-deep: #1f4e66;
   --color-on-primary: #ffffff;
-  --color-pink: #d77696;
-  --color-panel: #a36151;
-  --color-line: #155f82;
-  --color-ink: #5c3a34;
+  --color-mint: #7cc4b0;
+  --color-warm: #f2b36b;
+  --color-band: #e7f3f7;
+  --color-band-mint: #e8f6f2;
+  --color-panel: #1f4e66;
+  --color-line: #2f6f8f;
+  --color-ink: #163044;
 
-  --shadow-soft: 0 10px 30px rgba(160, 96, 80, 0.12);
+  --shadow-soft: 0 10px 30px rgba(31, 78, 102, 0.12);
 }
 
 @layer base {
   body {
-    @apply bg-background font-serif text-primary antialiased;
+    @apply bg-background font-serif text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-primary;
+  }
+
+  .bg-panel :is(h1, h2, h3, h4),
+  .panel-wash :is(h1, h2, h3, h4),
+  .bg-primary :is(h1, h2, h3, h4) {
+    color: #ffffff;
   }
 }
 
@@ -32,15 +48,21 @@
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-center font-sans text-sm font-semibold text-primary transition hover:bg-primary/5;
   }
+  .panel-wash {
+    background-image: linear-gradient(145deg, #2f6f8f 0%, #1f4e66 100%);
+  }
+  .decor-wash {
+    background-image: linear-gradient(145deg, #7cc4b0 0%, #2f6f8f 100%);
+  }
   .book-shadow {
-    box-shadow: 8px 12px 24px rgba(90, 50, 40, 0.16);
+    box-shadow: 8px 12px 24px rgba(22, 48, 68, 0.16);
   }
   .post-body p {
     margin-bottom: 1rem;
   }
   .post-body strong {
     font-weight: 650;
-    color: var(--color-primary);
+    color: var(--color-primary-deep);
   }
   .post-body a {
     text-decoration: underline;
@@ -56,7 +78,7 @@
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid #155f82;
+  outline: 2px solid #1f4e66;
   outline-offset: 3px;
 }
 

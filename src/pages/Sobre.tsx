@@ -1,28 +1,6 @@
 import photo from "../assets/dr-cicero.jpg";
-import { DOCTOR_ALT, LATTES_URL, publicUrl } from "../data/site";
-
-const trajetoria = [
-  "Pediatra pelo HUEM – 1991",
-  "Mestre em Saúde da Criança e do Adolescente",
-  "Pós-graduado em Preceptoria em Saúde - UFRN",
-  "Professor de Pediatria Social – Departamento de Pediatria UFPR",
-  "Coordenador do Ambulatório de Dificuldades Alimentares no HC-UFPR- UFPR",
-  "Preceptor de Pediatria da residência em Pediatria-HC-UFPR",
-  "Supervisor da Residência de Pediatria HNSG",
-];
-
-const livros = [
-  {
-    title: "Vamos para a mesa: orientações e reflexões sobre crianças que comem mal",
-    image: publicUrl("images/livros/vamos-para-a-mesa.jpg"),
-    alt: "Capa do livro Vamos para a mesa, de Cícero Alaor Kluppel",
-  },
-  {
-    title: "O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
-    image: publicUrl("images/livros/ratinho-godofredo.jpg"),
-    alt: "Capa do livro O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
-  },
-];
+import { capitulo, livros, trajetoria } from "../data/profile";
+import { DOCTOR_ALT, LATTES_URL } from "../data/site";
 
 export default function Sobre() {
   return (
@@ -33,10 +11,10 @@ export default function Sobre() {
             Sobre:
             <span className="mt-2 block">Cícero Alaor Kluppel</span>
           </h1>
-          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-primary">
+          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-ink">
             {trajetoria.map((item) => (
               <li key={item} className="flex gap-3">
-                <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-mint" />
                 <span>{item}</span>
               </li>
             ))}
@@ -65,10 +43,10 @@ export default function Sobre() {
               <h3 className="mt-4 text-center font-serif text-xl leading-snug text-primary">{livro.title}</h3>
             </article>
           ))}
-          <article className="flex min-h-80 items-center justify-center rounded-[2rem] bg-gradient-to-br from-[#e7a3bc] via-[#d77696] to-[#c45d82] p-8 text-center text-white shadow-soft">
+          <article className="panel-wash flex min-h-80 items-center justify-center rounded-[2rem] p-8 text-center text-white shadow-soft">
             <h3 className="font-serif text-2xl leading-snug">
               Capítulo:
-              <span className="mt-3 block">Dificuldades alimentares na Síndrome de Down</span>
+              <span className="mt-3 block">{capitulo}</span>
             </h3>
           </article>
         </div>
