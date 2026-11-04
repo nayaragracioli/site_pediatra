@@ -33,7 +33,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex min-h-screen flex-col bg-background text-primary">
+      <div className="flex min-h-screen flex-col bg-background text-ink">
         <Header />
         <div className="flex-grow">
           <Routes>

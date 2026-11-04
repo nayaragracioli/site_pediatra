@@ -13,16 +13,16 @@ import ScheduleLink, { WhatsAppIcon } from "./ScheduleLink";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-primary/15 bg-[#f6f1ea]">
+    <footer className="mt-16 border-t border-primary/15 bg-band">
       <div className="container-max grid gap-10 py-12 md:grid-cols-3">
-        <div className="space-y-2 text-primary">
-          <p className="font-serif text-xl font-semibold">{DOCTOR_NAME}</p>
-          <p>{DOCTOR_ROLE}</p>
-          <p className="font-sans text-sm">{CRM}</p>
+        <div className="space-y-2">
+          <p className="font-serif text-xl font-semibold text-primary">{DOCTOR_NAME}</p>
+          <p className="text-ink">{DOCTOR_ROLE}</p>
+          <p className="font-sans text-sm text-ink">{CRM}</p>
         </div>
         <div>
           <p className="mb-3 font-serif text-lg font-semibold text-primary">Navegação</p>
-          <ul className="space-y-2 text-primary">
+          <ul className="space-y-2 text-ink">
             {NAV.map((item) => (
               <li key={item.to}>
                 <Link to={item.to} className="hover:underline">
@@ -46,8 +46,8 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="space-y-3 text-primary">
-          <p className="font-serif text-lg font-semibold">Atendimento</p>
+        <div className="space-y-3 text-ink">
+          <p className="font-serif text-lg font-semibold text-primary">Atendimento</p>
           <p>
             {ADDRESS_LINES.map((line) => (
               <span key={line} className="block">
@@ -69,7 +69,7 @@ export default function Footer() {
           </ScheduleLink>
         </div>
       </div>
-      <div className="border-t border-primary/10 py-6 text-center font-sans text-sm text-primary/80">
+      <div className="border-t border-primary/10 py-6 text-center font-sans text-sm text-ink/80">
         © {new Date().getFullYear()} {DOCTOR_NAME}. {CRM}. Curitiba — PR.
       </div>
     </footer>

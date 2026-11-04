@@ -8,7 +8,7 @@ export default function Dificuldades() {
   return (
     <main>
       <section className="container-max grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[1.15fr_0.7fr]">
-        <div className="space-y-5 text-primary">
+        <div className="space-y-5">
           <h1 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
             Dificuldades alimentares na infância
           </h1>
@@ -25,7 +25,7 @@ export default function Dificuldades() {
         </div>
         <div
           aria-hidden="true"
-          className="mx-auto hidden aspect-square w-full max-w-sm rounded-[2.5rem] bg-gradient-to-br from-[#e7a3bc] via-[#d77696] to-[#c45d82] lg:block"
+          className="decor-wash mx-auto hidden aspect-square w-full max-w-sm rounded-[2.5rem] lg:block"
         />
       </section>
 
@@ -39,8 +39,8 @@ export default function Dificuldades() {
                 to={`/dificuldades-alimentares/${topic.id}`}
                 role="tab"
                 aria-selected={active}
-                className={`rounded-full px-5 py-4 text-center font-serif text-lg leading-snug text-white transition ${
-                  active ? "bg-[#b84b74] shadow-soft" : "bg-pink hover:bg-[#c45d82]"
+                className={`rounded-full px-5 py-4 text-center font-serif text-lg leading-snug transition ${
+                  active ? "bg-primary-deep text-white shadow-soft" : "bg-mint text-ink hover:bg-mint/80"
                 }`}
               >
                 {topic.label}

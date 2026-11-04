@@ -11,10 +11,10 @@ export default function Sobre() {
             Sobre:
             <span className="mt-2 block">Cícero Alaor Kluppel</span>
           </h1>
-          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-primary">
+          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-ink">
             {trajetoria.map((item) => (
               <li key={item} className="flex gap-3">
-                <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-mint" />
                 <span>{item}</span>
               </li>
             ))}
@@ -43,7 +43,7 @@ export default function Sobre() {
               <h3 className="mt-4 text-center font-serif text-xl leading-snug text-primary">{livro.title}</h3>
             </article>
           ))}
-          <article className="flex min-h-80 items-center justify-center rounded-[2rem] bg-gradient-to-br from-[#e7a3bc] via-[#d77696] to-[#c45d82] p-8 text-center text-white shadow-soft">
+          <article className="panel-wash flex min-h-80 items-center justify-center rounded-[2rem] p-8 text-center text-white shadow-soft">
             <h3 className="font-serif text-2xl leading-snug">
               Capítulo:
               <span className="mt-3 block">{capitulo}</span>

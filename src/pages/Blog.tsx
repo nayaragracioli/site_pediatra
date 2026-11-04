@@ -24,7 +24,7 @@ export default function Blog() {
     <main className="container-max py-12 md:py-16">
       <header className="max-w-3xl">
         <h1 className="font-serif text-4xl font-semibold text-primary md:text-5xl">Blog da Criança</h1>
-        <p className="mt-4 text-lg leading-relaxed text-primary">
+        <p className="mt-4 text-lg leading-relaxed text-ink">
           Textos do Dr. Cícero Alaor Kluppel, publicados originalmente em cicerokluppel.com.
         </p>
       </header>
@@ -66,7 +66,7 @@ export default function Blog() {
           {filtered.map((post) => (
             <article key={post.slug} className="flex flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-soft">
               {post.image && (
-                <Link to={`/blog/${post.slug}`} className="block aspect-square overflow-hidden bg-[#f6f1ea]">
+                <Link to={`/blog/${post.slug}`} className="block aspect-square overflow-hidden bg-band">
                   <img
                     src={publicUrl(post.image)}
                     alt=""

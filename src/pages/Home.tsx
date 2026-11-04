@@ -58,8 +58,8 @@ export default function Home() {
   return (
     <main>
       <section className="container-max grid items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-        <div className="space-y-6 text-primary">
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">
+        <div className="space-y-6">
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
             {DOCTOR_ROLE} · {CRM}
           </p>
           <h1 className="font-serif text-4xl font-semibold leading-[1.12] md:text-5xl">
@@ -86,7 +86,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="bg-[#f3ebe4]">
+      <section className="bg-band">
         <div className="container-max grid items-center gap-10 py-16 md:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <img
             src={photo}
@@ -94,7 +94,7 @@ export default function Home() {
             className="mx-auto hidden aspect-[4/5] w-full max-w-sm rounded-[2rem] object-cover object-top shadow-soft lg:block"
           />
           <div>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">Sobre</p>
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Sobre</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold text-primary md:text-4xl">{DOCTOR_NAME}</h2>
             <p className="mt-2 text-lg text-primary">
               {DOCTOR_ROLE} · {CRM}
@@ -102,7 +102,7 @@ export default function Home() {
             <ul className="mt-6 space-y-3 text-lg leading-relaxed text-ink">
               {trajetoria.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-warm" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -122,7 +122,7 @@ export default function Home() {
       <section className="container-max py-16 md:py-20">
         <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
               Dificuldades alimentares
             </p>
             <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-primary md:text-4xl">
@@ -152,9 +152,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f3ebe4]">
+      <section className="bg-band-mint">
         <div className="container-max py-16 md:py-20">
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">Atendimento</p>
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Atendimento</p>
           <h2 className="mt-3 max-w-2xl font-serif text-3xl font-semibold text-primary md:text-4xl">
             Consultas presenciais em Curitiba e por teleconsulta
           </h2>
@@ -165,7 +165,7 @@ export default function Home() {
                 to={service.to}
                 className="group rounded-[1.75rem] bg-white p-7 shadow-soft transition hover:-translate-y-0.5"
               >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f3ebe4] text-primary">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-mint text-primary-deep">
                   <service.icon size={22} aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 font-serif text-2xl font-semibold text-primary">{service.title}</h3>
@@ -183,7 +183,7 @@ export default function Home() {
       <section className="container-max py-16 md:py-20">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">Publicações</p>
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Publicações</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold text-primary md:text-4xl">Livros e capítulo</h2>
           </div>
           <Link to="/sobre" state={{ scrollTo: "livros" }} className="btn-outline">
@@ -205,7 +205,7 @@ export default function Home() {
           <Link
             to="/sobre"
             state={{ scrollTo: "livros" }}
-            className="flex h-full min-h-72 items-center justify-center rounded-[2rem] bg-gradient-to-br from-[#e7a3bc] via-[#d77696] to-[#c45d82] p-8 text-center text-white shadow-soft transition hover:-translate-y-1"
+            className="panel-wash flex h-full min-h-72 items-center justify-center rounded-[2rem] p-8 text-center text-white shadow-soft transition hover:-translate-y-1"
           >
             <h3 className="font-serif text-2xl leading-snug">
               Capítulo:
@@ -215,11 +215,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f3ebe4]">
+      <section className="bg-band">
         <div className="container-max py-16 md:py-20">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">Blog da Criança</p>
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Blog da Criança</p>
               <h2 className="mt-3 font-serif text-3xl font-semibold text-primary md:text-4xl">Textos recentes</h2>
             </div>
             <Link to="/blog" className="btn-outline bg-transparent">
@@ -235,7 +235,7 @@ export default function Home() {
                     <img src={publicUrl(post.image)} alt="" className="aspect-[4/3] w-full object-cover" />
                   </Link>
                 )}
-                <p className="font-sans text-xs uppercase tracking-wider text-primary/70">
+                <p className="font-sans text-xs uppercase tracking-wider text-primary-deep">
                   {post.tema} · {formatDate(post.date)}
                 </p>
                 <h3 className="mt-2 font-serif text-2xl leading-snug text-primary">
@@ -296,9 +296,9 @@ export default function Home() {
             href={MAP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-72 flex-col items-center justify-center gap-4 bg-gradient-to-br from-[#e7a3bc] via-[#d77696] to-[#c45d82] p-8 text-center text-white"
+            className="panel-wash flex min-h-72 flex-col items-center justify-center gap-4 p-8 text-center text-white"
           >
-            <MapPin size={42} aria-hidden="true" />
+            <MapPin size={42} aria-hidden="true" className="text-warm" />
             <span className="font-serif text-3xl">Água Verde, Curitiba</span>
             <span className="font-sans text-sm underline">Ver no mapa</span>
           </a>

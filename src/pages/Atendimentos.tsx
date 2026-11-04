@@ -8,7 +8,7 @@ export default function Atendimentos() {
       <h1 className="font-serif text-4xl font-semibold text-primary md:text-5xl">Atendimentos e contato</h1>
 
       <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
-        <div className="space-y-8 text-lg leading-relaxed text-primary">
+        <div className="space-y-8 text-lg leading-relaxed">
           <section>
             <h2 className="font-serif text-2xl font-semibold">Atendimento presencial</h2>
             <p className="mt-3">
@@ -48,9 +48,9 @@ export default function Atendimentos() {
           href={MAP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex min-h-72 flex-col items-center justify-center gap-4 rounded-[2rem] bg-gradient-to-br from-[#e7a3bc] via-[#d77696] to-[#c45d82] p-8 text-center text-white shadow-soft"
+          className="panel-wash flex min-h-72 flex-col items-center justify-center gap-4 rounded-[2rem] p-8 text-center text-white shadow-soft"
         >
-          <MapPin size={42} aria-hidden="true" />
+          <MapPin size={42} aria-hidden="true" className="text-warm" />
           <span className="font-serif text-2xl">Água Verde, Curitiba</span>
           <span className="max-w-sm break-all font-sans text-sm underline">{MAP_URL}</span>
         </a>
