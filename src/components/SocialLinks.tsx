@@ -1,6 +1,6 @@
 import { Instagram, Youtube } from "lucide-react";
 
-export const INSTAGRAM_URL = "https://www.instagram.com/dr.ciceroalaorkluppel/";
+export const INSTAGRAM_URL = "https://www.instagram.com/ciceroalaorkluppel/";
 export const YOUTUBE_URL = "https://www.youtube.com/user/ciceroak/videos";
 
 const links = [
