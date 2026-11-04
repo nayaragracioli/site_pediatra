@@ -1,6 +1,7 @@
 import photo from "../assets/dr-cicero.jpg";
 import BackButton from "../components/BackButton";
-import { livros, trajetoria } from "../data/profile";
+import BookList from "../components/BookList";
+import { trajetoria } from "../data/profile";
 import { DOCTOR_ALT, LATTES_URL } from "../data/site";
 
 export default function Sobre() {
@@ -35,19 +36,8 @@ export default function Sobre() {
       </section>
 
       <section id="livros" className="container-max scroll-mt-28 pb-8">
-        <h2 className="font-serif text-4xl font-semibold text-primary">Livros</h2>
-        <div className="mt-8 grid gap-8 sm:grid-cols-2">
-          {livros.map((livro) => (
-            <article key={livro.title} className="flex flex-col">
-              <img
-                src={livro.image}
-                alt={livro.alt}
-                className="book-shadow mx-auto h-80 w-auto max-w-full rounded-sm bg-white object-contain"
-              />
-              <h3 className="mt-4 text-center font-serif text-xl leading-snug text-primary">{livro.title}</h3>
-            </article>
-          ))}
-        </div>
+        <h2 className="font-serif text-4xl font-semibold text-primary">Livros e capítulo</h2>
+        <BookList />
       </section>
     </main>
   );

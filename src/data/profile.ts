@@ -15,10 +15,14 @@ export const livros = [
     title: "Vamos para a mesa: orientações e reflexões sobre crianças que comem mal",
     image: publicUrl("images/livros/vamos-para-a-mesa.jpg"),
     alt: "Capa do livro Vamos para a mesa, de Cícero Alaor Kluppel",
+    url: "https://www.amazon.com.br/Vamos-para-C%C3%ADcero-Alaor-Kluppel/dp/6587056369",
   },
   {
     title: "O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
     image: publicUrl("images/livros/ratinho-godofredo.jpg"),
     alt: "Capa do livro O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
+    url: "https://www.amazon.com.br/ratinho-Godofredo-Onofre-queria-visitar-ebook/dp/B07XXM2KWF",
   },
 ];
+
+export const capitulo = "Dificuldades alimentares na Síndrome de Down";

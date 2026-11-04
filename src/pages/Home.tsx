@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Baby, MapPin, Stethoscope, Utensils, Video } from "lucide-react";
 import photo from "../assets/dr-cicero.jpg";
+import BookList from "../components/BookList";
 import FamilyReviews from "../components/FamilyReviews";
 import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
 import SocialLinks from "../components/SocialLinks";
 import { topics } from "../data/dificuldades";
 import { posts } from "../data/posts";
-import { livros, trajetoria } from "../data/profile";
+import { trajetoria } from "../data/profile";
 import {
   ADDRESS_LINES,
   CRM,
@@ -118,19 +119,8 @@ export default function Home() {
         </div>
 
         <div id="livros" className="container-max scroll-mt-28 pb-16 md:pb-20">
-          <h3 className="font-serif text-3xl font-semibold">Livros</h3>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2">
-            {livros.map((livro) => (
-              <article key={livro.title} className="flex flex-col">
-                <img
-                  src={livro.image}
-                  alt={livro.alt}
-                  className="book-shadow mx-auto h-72 w-auto max-w-full rounded-sm bg-white object-contain"
-                />
-                <h4 className="mt-4 text-center font-serif text-xl leading-snug">{livro.title}</h4>
-              </article>
-            ))}
-          </div>
+          <h3 className="font-serif text-3xl font-semibold">Livros e capítulo</h3>
+          <BookList coverClass="h-72" />
         </div>
       </section>
 
