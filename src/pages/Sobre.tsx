@@ -1,4 +1,4 @@
-import photo from "../assets/dr-cicero.jpg";
+import photo from "../assets/dr-cicero-sobre.jpg";
 import BackButton from "../components/BackButton";
 import BookList from "../components/BookList";
 import { trajetoria } from "../data/profile";
@@ -28,11 +28,13 @@ export default function Sobre() {
             Consultar curriculum LATTES
           </a>
         </div>
-        <img
-          src={photo}
-          alt={DOCTOR_ALT}
-          className="mx-auto w-full max-w-md rounded-[2.5rem] object-cover shadow-soft lg:max-w-none"
-        />
+        <div className="mx-auto w-full max-w-sm rounded-[2rem] border border-mint/40 bg-white p-3 shadow-soft lg:max-w-none">
+          <img
+            src={photo}
+            alt={DOCTOR_ALT}
+            className="aspect-[3/4] w-full rounded-[1.5rem] object-cover object-top"
+          />
+        </div>
       </section>
 
       <section id="livros" className="container-max scroll-mt-28 pb-8">
