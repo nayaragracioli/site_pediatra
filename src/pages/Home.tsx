@@ -173,7 +173,7 @@ export default function Home() {
               <article key={post.slug} className="flex flex-col rounded-[1.75rem] bg-white p-6 shadow-soft">
                 {post.image && (
                   <Link to={`/blog/${post.slug}`} className="mb-5 block overflow-hidden rounded-2xl">
-                    <img src={publicUrl(post.image)} alt="" className="aspect-[4/3] w-full object-cover" />
+                    <img src={publicUrl(post.image)} alt={post.imageAlt ?? ""} className="aspect-[4/3] w-full object-cover" />
                   </Link>
                 )}
                 <p className="font-sans text-xs uppercase tracking-wider text-primary-deep">

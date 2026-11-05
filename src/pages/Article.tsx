@@ -37,7 +37,7 @@ export default function Article() {
         {post.image && (
           <img
             src={publicUrl(post.image)}
-            alt=""
+            alt={post.imageAlt ?? ""}
             className="mt-8 w-full rounded-[1.75rem] object-cover"
           />
         )}
