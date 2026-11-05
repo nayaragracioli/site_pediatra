@@ -26,7 +26,14 @@ import {
 
 const quando = topics.find((topic) => topic.id === "quando-procurar")!;
 const autismo = topics.find((topic) => topic.id === "autismo")!;
-const recentPosts = posts.slice(0, 3);
+const homePostSlugs = [
+  "como-apresentar-um-alimento-as-criancas-com-seletividade-alimentar",
+  "meu-filho-nao-come-sera",
+  "e-dificil-comer-com-seu-filho-a-mesa",
+];
+const homePosts = homePostSlugs
+  .map((slug) => posts.find((post) => post.slug === slug))
+  .filter((post) => post !== undefined);
 
 const services = [
   {
@@ -58,11 +65,16 @@ const services = [
 export default function Home() {
   return (
     <main>
-      <section id="inicio" className="container-max grid scroll-mt-28 items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-        <div className="space-y-6">
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
-            {DOCTOR_ROLE} · {CRM}
-          </p>
+      <section id="inicio" className="container-max grid scroll-mt-28 items-center gap-6 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16 lg:gap-y-6">
+        <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep lg:col-start-1">
+          {DOCTOR_ROLE} · {CRM}
+        </p>
+        <img
+          src={photo}
+          alt={DOCTOR_ALT}
+          className="mx-auto aspect-[3/4] w-full max-w-md rounded-[2.5rem] object-cover object-top shadow-soft lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none"
+        />
+        <div className="space-y-6 lg:col-start-1">
           <h1 className="font-serif text-4xl font-semibold leading-[1.12] md:text-5xl">
             Pediatria baseada em evidências e atendimento de crianças com dificuldades alimentares
           </h1>
@@ -80,11 +92,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <img
-          src={photo}
-          alt={DOCTOR_ALT}
-          className="mx-auto aspect-[3/4] w-full max-w-md rounded-[2.5rem] object-cover object-top shadow-soft lg:max-w-none"
-        />
       </section>
 
       <section id="sobre" className="scroll-mt-28 bg-band">
@@ -162,7 +169,7 @@ export default function Home() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">Blog da Criança</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">Textos recentes</h2>
+              <h2 className="mt-3 font-serif text-3xl font-semibold md:text-4xl">Textos sobre alimentação</h2>
             </div>
             <Link to="/blog" className="btn-outline bg-transparent">
               Saiba mais
@@ -170,7 +177,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {recentPosts.map((post) => (
+            {homePosts.map((post) => (
               <article key={post.slug} className="flex flex-col rounded-[1.75rem] bg-white p-6 shadow-soft">
                 {post.image && (
                   <Link to={`/blog/${post.slug}`} className="mb-5 block overflow-hidden rounded-2xl">
