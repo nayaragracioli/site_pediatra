@@ -69,7 +69,7 @@ export default function Blog() {
                 <Link to={`/blog/${post.slug}`} className="block aspect-square overflow-hidden bg-band">
                   <img
                     src={publicUrl(post.image)}
-                    alt=""
+                    alt={post.imageAlt ?? ""}
                     className="h-full w-full object-cover"
                   />
                 </Link>
