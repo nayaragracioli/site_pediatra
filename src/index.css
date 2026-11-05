@@ -70,6 +70,29 @@
   }
 }
 
+.nav-underline {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: currentColor;
+  transition: transform 300ms ease;
+  pointer-events: none;
+}
+
+.group:hover .nav-underline {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-underline {
+    transition: none;
+  }
+}
+
 .btn-primary:focus-visible,
 .btn-outline:focus-visible,
 a:focus-visible,
