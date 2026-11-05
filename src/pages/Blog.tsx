@@ -39,7 +39,7 @@ export default function Blog() {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Buscar por título ou trecho"
-          className="w-full rounded-full border border-primary/25 bg-white px-5 py-3 text-ink outline-none focus:border-line"
+          className="w-full rounded-full border border-primary/25 bg-white px-5 py-3 text-ink outline-none placeholder:text-primary-deep placeholder:opacity-100 focus:border-line"
         />
       </div>
 
@@ -60,7 +60,19 @@ export default function Blog() {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-12 text-lg text-primary">Nenhum texto encontrado.</p>
+        <div className="mt-12">
+          <p className="text-lg text-primary">Nenhum texto encontrado.</p>
+          <button
+            type="button"
+            onClick={() => {
+              setQuery("");
+              setTema("Todos");
+            }}
+            className="mt-4 font-sans text-sm font-semibold text-primary underline"
+          >
+            Ver todos os textos
+          </button>
+        </div>
       ) : (
         <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {filtered.map((post) => (
@@ -75,7 +87,7 @@ export default function Blog() {
                 </Link>
               )}
               <div className="flex flex-1 flex-col p-6">
-                <p className="font-sans text-xs uppercase tracking-wider text-primary/70">
+                <p className="font-sans text-sm uppercase tracking-wider text-primary-deep">
                   {post.tema} · {formatDate(post.date)}
                 </p>
                 <h2 className="mt-2 font-serif text-2xl leading-snug text-primary">

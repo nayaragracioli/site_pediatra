@@ -46,7 +46,7 @@ export default function FamilyReviews() {
         {reviews.map((review) => (
           <li key={review.author} className="flex h-full flex-col rounded-[1.5rem] bg-white p-6 shadow-soft">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mint font-sans text-sm font-semibold text-primary-deep">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-band-mint font-sans text-sm font-semibold text-primary-deep">
                 {initials(review.author)}
               </span>
               <div className="min-w-0">

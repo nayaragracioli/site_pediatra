@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
 import { getTopic, topics } from "../data/dificuldades";
 
 export default function Dificuldades() {
@@ -12,6 +13,14 @@ export default function Dificuldades() {
   }, [topico]);
 
   const selected = getTopic(currentId);
+  const panelRef = useRef<HTMLElement>(null);
+
+  function chooseTopic(id: string) {
+    setCurrentId(id);
+    requestAnimationFrame(() => {
+      panelRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  }
 
   return (
     <main>
@@ -31,6 +40,10 @@ export default function Dificuldades() {
             Uma avaliação cuidadosa permite identificar os fatores envolvidos e estabelecer um plano de acompanhamento individualizado, considerando as características da criança e de sua família.
           </p>
           <p className="font-serif text-2xl font-semibold">As Dificuldades Alimentares têm tratamento</p>
+          <ScheduleLink className="btn-primary">
+            <WhatsAppIcon />
+            Agendar consulta
+          </ScheduleLink>
         </div>
       </section>
 
@@ -44,7 +57,7 @@ export default function Dificuldades() {
                 type="button"
                 role="tab"
                 aria-selected={active}
-                onClick={() => setCurrentId(topic.id)}
+                onClick={() => chooseTopic(topic.id)}
                 className={`rounded-full px-5 py-4 text-center font-serif text-lg leading-snug transition ${
                   active ? "bg-primary-deep text-white shadow-soft" : "bg-mint text-ink hover:bg-mint/80"
                 }`}
@@ -55,7 +68,13 @@ export default function Dificuldades() {
           })}
         </div>
 
-        <article role="tabpanel" aria-label={selected.title} className="rounded-[2rem] bg-panel p-7 text-white shadow-soft md:p-10">
+        <article
+          ref={panelRef}
+          id="topico"
+          role="tabpanel"
+          aria-label={selected.title}
+          className="scroll-mt-28 rounded-[2rem] bg-panel p-7 text-white shadow-soft md:p-10"
+        >
           <h2 className="font-serif text-2xl font-semibold leading-snug md:text-3xl">{selected.title}</h2>
           {selected.intro && <p className="mt-5 text-lg leading-relaxed">{selected.intro}</p>}
           {selected.bullets && (

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { CRM, DOCTOR_NAME, DOCTOR_ROLE } from "../data/site";
 import { SECTIONS } from "../data/sections";
-import ScheduleLink from "./ScheduleLink";
+import ScheduleLink, { WhatsAppIcon } from "./ScheduleLink";
 import SocialLinks from "./SocialLinks";
 import { useGoToSection } from "./useGoToSection";
 
@@ -26,7 +26,7 @@ function Brand({ onClick, compact = false }: { onClick: () => void; compact?: bo
         {DOCTOR_NAME}
       </span>
       <span className={`block truncate font-serif ${compact ? "text-xs" : "text-[12px] xl:text-[13px]"}`}>{DOCTOR_ROLE}</span>
-      <span className={`block truncate font-sans tracking-wide ${compact ? "text-[10px]" : "text-[10px] xl:text-[11px]"}`}>{CRM}</span>
+      <span className="block truncate font-sans text-xs tracking-wide">{CRM}</span>
     </button>
   );
 }
@@ -47,13 +47,16 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b-[3px] border-line bg-background/95 backdrop-blur-md">
-      <div className="flex items-center justify-between gap-3 px-4 py-3.5 lg:hidden">
+      <div className="flex items-center justify-between gap-2 px-4 py-3.5 lg:hidden">
         <Brand onClick={() => visit("inicio")} compact />
         <div className="flex shrink-0 items-center gap-2">
-          <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs">Agendar consulta</ScheduleLink>
+          <ScheduleLink className="btn-primary whitespace-nowrap px-2 py-2 text-xs">
+            <WhatsAppIcon />
+            Agendar consulta
+          </ScheduleLink>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 text-primary"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 text-primary"
             aria-expanded={open}
             aria-controls="menu-mobile"
             onClick={() => setOpen((value) => !value)}
@@ -77,6 +80,7 @@ export default function Header() {
         </nav>
         <div className="justify-self-end">
           <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs xl:px-4 xl:py-2.5 xl:text-sm">
+            <WhatsAppIcon />
             Agendar consulta
           </ScheduleLink>
         </div>

@@ -3,7 +3,9 @@ export const DOCTOR_ROLE = "Médico Pediatra";
 export const CRM = "CRM-PR 11479 RQE 3479";
 export const DOCTOR_ALT = "Dr. Cícero Alaor Kluppel, médico pediatra";
 
-export const WHATSAPP_URL = "https://wa.me/5541984426161";
+export const WHATSAPP_MESSAGE =
+  "Olá, Dr. Cícero. Gostaria de agendar uma consulta. Idade da criança: . Presencial ou teleconsulta: .";
+export const WHATSAPP_URL = `https://wa.me/5541984426161?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const PHONE_DISPLAY = "(41) 98442-6161";
 export const PHONE_TEL = "tel:+5541984426161";
 

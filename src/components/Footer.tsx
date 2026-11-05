@@ -6,6 +6,7 @@ import {
   MAP_URL,
   PHONE_DISPLAY,
   PHONE_TEL,
+  WHATSAPP_URL,
 } from "../data/site";
 import { SECTIONS } from "../data/sections";
 import ScheduleLink, { WhatsAppIcon } from "./ScheduleLink";
@@ -53,9 +54,13 @@ export default function Footer() {
           <a href={MAP_URL} target="_blank" rel="noopener noreferrer" className="inline-block underline">
             Ver no mapa
           </a>
-          <p>
+          <p className="flex flex-col gap-1">
             <a href={PHONE_TEL} className="hover:underline">
-              {PHONE_DISPLAY}
+              Ligar {PHONE_DISPLAY}
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline">
+              <WhatsAppIcon />
+              WhatsApp {PHONE_DISPLAY}
             </a>
           </p>
           <ScheduleLink className="btn-primary">
