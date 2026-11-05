@@ -16,12 +16,16 @@ export const livros = [
     image: publicUrl("images/livros/vamos-para-a-mesa.jpg"),
     alt: "Capa do livro Vamos para a mesa, de Cícero Alaor Kluppel",
     url: "https://www.amazon.com.br/Vamos-para-C%C3%ADcero-Alaor-Kluppel/dp/6587056369",
+    summary:
+      "Livro para famílias com crianças com seletividade alimentar e outras dificuldades alimentares. Reúne orientações, explicações, estratégias e dicas para auxiliar quem tem filhos que comem mal, quando a refeição se torna um momento de ansiedade. O texto acolhe essas famílias e orienta a relação de todos da casa com os alimentos e as refeições.",
   },
   {
     title: "O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
     image: publicUrl("images/livros/ratinho-godofredo.jpg"),
     alt: "Capa do livro O ratinho Godofredo Onofre e o cocô que queria visitar os amigos",
     url: "https://www.amazon.com.br/ratinho-Godofredo-Onofre-queria-visitar-ebook/dp/B07XXM2KWF",
+    summary:
+      "História de um ratinho que não entende por que sente um desconforto na barriga. Ele procura os pais, que o ajudam a resolver o problema, e no dia seguinte já tem autonomia para lidar sozinho. O livro foi escrito para auxiliar crianças na fase do desfralde.",
   },
 ];
 

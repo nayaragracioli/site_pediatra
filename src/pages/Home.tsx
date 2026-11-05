@@ -119,7 +119,7 @@ export default function Home() {
 
         <div id="livros" className="container-max scroll-mt-28 pb-16 md:pb-20">
           <h3 className="font-serif text-3xl font-semibold">Livros e capítulo</h3>
-          <BookList coverClass="h-72" />
+          <BookList coverClass="h-72" showSummaries />
         </div>
       </section>
 
