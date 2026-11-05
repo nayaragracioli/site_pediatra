@@ -75,7 +75,7 @@ export default function Blog() {
                 </Link>
               )}
               <div className="flex flex-1 flex-col p-6">
-                <p className="font-sans text-xs uppercase tracking-wider text-primary/70">
+                <p className="font-sans text-sm uppercase tracking-wider text-primary-deep">
                   {post.tema} · {formatDate(post.date)}
                 </p>
                 <h2 className="mt-2 font-serif text-2xl leading-snug text-primary">

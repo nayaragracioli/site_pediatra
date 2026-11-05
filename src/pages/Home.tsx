@@ -184,7 +184,7 @@ export default function Home() {
                     <img src={publicUrl(post.image)} alt={post.imageAlt ?? ""} className="aspect-[4/3] w-full object-cover" />
                   </Link>
                 )}
-                <p className="font-sans text-xs uppercase tracking-wider text-primary-deep">
+                <p className="font-sans text-sm uppercase tracking-wider text-primary-deep">
                   {post.tema} · {formatDate(post.date)}
                 </p>
                 <h3 className="mt-2 font-serif text-2xl leading-snug">

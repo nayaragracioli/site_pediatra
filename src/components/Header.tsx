@@ -26,7 +26,7 @@ function Brand({ onClick, compact = false }: { onClick: () => void; compact?: bo
         {DOCTOR_NAME}
       </span>
       <span className={`block truncate font-serif ${compact ? "text-xs" : "text-[12px] xl:text-[13px]"}`}>{DOCTOR_ROLE}</span>
-      <span className={`block truncate font-sans tracking-wide ${compact ? "text-[10px]" : "text-[10px] xl:text-[11px]"}`}>{CRM}</span>
+      <span className="block truncate font-sans text-xs tracking-wide">{CRM}</span>
     </button>
   );
 }

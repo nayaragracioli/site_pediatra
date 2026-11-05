@@ -25,7 +25,7 @@ export default function Article() {
       <BackButton fallback="/blog" />
 
       <article className="mx-auto mt-8 max-w-3xl">
-        <p className="font-sans text-xs uppercase tracking-wider text-primary/70">
+        <p className="font-sans text-sm uppercase tracking-wider text-primary-deep">
           {post.tema} · {formatDate(post.date)}
         </p>
         <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight text-primary md:text-5xl">{post.title}</h1>
@@ -42,7 +42,7 @@ export default function Article() {
           />
         )}
 
-        <div className="post-body mt-8 text-lg leading-relaxed text-ink" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="post-body mt-8 max-w-[70ch] text-lg leading-relaxed text-ink" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
 
       <aside className="mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-[1.4fr_0.8fr]">
