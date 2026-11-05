@@ -47,16 +47,16 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b-[3px] border-line bg-background/95 backdrop-blur-md">
-      <div className="flex items-center justify-between gap-3 px-4 py-3.5 lg:hidden">
+      <div className="flex items-center justify-between gap-2 px-4 py-3.5 lg:hidden">
         <Brand onClick={() => visit("inicio")} compact />
         <div className="flex shrink-0 items-center gap-2">
-          <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs">
-            <WhatsAppIcon className="h-4 w-4" />
+          <ScheduleLink className="btn-primary whitespace-nowrap px-2.5 py-2 text-xs">
+            <WhatsAppIcon className="h-3.5 w-3.5" />
             Agendar consulta
           </ScheduleLink>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 text-primary"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 text-primary"
             aria-expanded={open}
             aria-controls="menu-mobile"
             onClick={() => setOpen((value) => !value)}
