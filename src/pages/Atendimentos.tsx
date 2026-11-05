@@ -38,7 +38,8 @@ export default function Atendimentos() {
               <a href={PHONE_TEL} className="underline">
                 Ligar {PHONE_DISPLAY}
               </a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 underline">
+                <WhatsAppIcon />
                 WhatsApp {PHONE_DISPLAY}
               </a>
             </p>

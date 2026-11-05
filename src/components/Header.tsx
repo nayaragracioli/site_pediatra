@@ -50,8 +50,8 @@ export default function Header() {
       <div className="flex items-center justify-between gap-2 px-4 py-3.5 lg:hidden">
         <Brand onClick={() => visit("inicio")} compact />
         <div className="flex shrink-0 items-center gap-2">
-          <ScheduleLink className="btn-primary whitespace-nowrap px-2.5 py-2 text-xs">
-            <WhatsAppIcon className="h-3.5 w-3.5" />
+          <ScheduleLink className="btn-primary whitespace-nowrap px-2 py-2 text-xs">
+            <WhatsAppIcon />
             Agendar consulta
           </ScheduleLink>
           <button
@@ -80,7 +80,7 @@ export default function Header() {
         </nav>
         <div className="justify-self-end">
           <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs xl:px-4 xl:py-2.5 xl:text-sm">
-            <WhatsAppIcon className="h-4 w-4" />
+            <WhatsAppIcon />
             Agendar consulta
           </ScheduleLink>
         </div>

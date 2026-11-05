@@ -268,7 +268,8 @@ export default function Home() {
                 <a href={PHONE_TEL} className="text-primary underline">
                   Ligar {PHONE_DISPLAY}
                 </a>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary underline">
+                  <WhatsAppIcon />
                   WhatsApp {PHONE_DISPLAY}
                 </a>
               </p>

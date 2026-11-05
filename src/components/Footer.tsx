@@ -58,7 +58,8 @@ export default function Footer() {
             <a href={PHONE_TEL} className="hover:underline">
               Ligar {PHONE_DISPLAY}
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline">
+              <WhatsAppIcon />
               WhatsApp {PHONE_DISPLAY}
             </a>
           </p>
