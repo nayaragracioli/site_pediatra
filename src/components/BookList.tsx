@@ -1,6 +1,12 @@
 import { capitulo, livros } from "../data/profile";
 
-export default function BookList({ coverClass = "h-80" }: { coverClass?: string }) {
+export default function BookList({
+  coverClass = "h-80",
+  showSummaries = false,
+}: {
+  coverClass?: string;
+  showSummaries?: boolean;
+}) {
   return (
     <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {livros.map((livro) => (
@@ -17,6 +23,9 @@ export default function BookList({ coverClass = "h-80" }: { coverClass?: string 
               {livro.title}
             </a>
           </h3>
+          {showSummaries && (
+            <p className="mt-3 text-sm leading-relaxed text-ink">{livro.summary}</p>
+          )}
           <a href={livro.url} target="_blank" rel="noopener noreferrer" className="btn-outline mt-4 px-4 py-2 text-xs">
             Comprar na Amazon
           </a>

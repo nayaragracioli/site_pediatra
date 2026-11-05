@@ -7,6 +7,18 @@ import ScheduleLink from "./ScheduleLink";
 import SocialLinks from "./SocialLinks";
 import { useGoToSection } from "./useGoToSection";
 
+function MenuLabel({ children }: { children: string }) {
+  return (
+    <span className="relative inline-block">
+      {children}
+      <span
+        aria-hidden="true"
+        className="nav-underline"
+      />
+    </span>
+  );
+}
+
 function Brand({ onClick, compact = false }: { onClick: () => void; compact?: boolean }) {
   return (
     <button type="button" onClick={onClick} className="min-w-0 text-left leading-tight text-primary">
@@ -58,8 +70,8 @@ export default function Header() {
         </div>
         <nav className="flex items-center justify-center gap-x-2.5 whitespace-nowrap text-[13px] text-primary xl:gap-x-4 xl:text-[15px]" aria-label="Principal">
           {SECTIONS.map((item) => (
-            <button key={item.id} type="button" onClick={() => visit(item.id)} className="whitespace-nowrap hover:opacity-70">
-              {item.label}
+            <button key={item.id} type="button" onClick={() => visit(item.id)} className="group whitespace-nowrap text-primary">
+              <MenuLabel>{item.label}</MenuLabel>
             </button>
           ))}
         </nav>
@@ -78,9 +90,9 @@ export default function Header() {
                 key={item.id}
                 type="button"
                 onClick={() => visit(item.id)}
-                className="rounded-xl px-3 py-3 text-left hover:bg-primary/5"
+                className="group rounded-xl px-3 py-3 text-left text-primary"
               >
-                {item.label}
+                <MenuLabel>{item.label}</MenuLabel>
               </button>
             ))}
             <SocialLinks className="px-3 pt-2" />
