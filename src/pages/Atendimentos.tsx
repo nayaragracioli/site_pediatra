@@ -58,7 +58,7 @@ export default function Atendimentos() {
         >
           <MapPin size={42} aria-hidden="true" className="text-warm" />
           <span className="font-serif text-2xl">Água Verde, Curitiba</span>
-          <span className="max-w-sm break-all font-sans text-sm underline">{MAP_URL}</span>
+          <span className="font-sans text-sm underline">Ver no mapa</span>
         </a>
       </div>
     </main>
