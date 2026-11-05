@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 import BackButton from "../components/BackButton";
 import ScheduleLink, { WhatsAppIcon } from "../components/ScheduleLink";
 import SocialLinks from "../components/SocialLinks";
-import { ADDRESS_LINES, MAP_URL, PHONE_DISPLAY, PHONE_TEL } from "../data/site";
+import { ADDRESS_LINES, MAP_URL, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "../data/site";
 
 export default function Atendimentos() {
   return (
@@ -34,10 +34,12 @@ export default function Atendimentos() {
 
           <section>
             <h2 className="font-serif text-2xl font-semibold">Agendamento</h2>
-            <p className="mt-3">
-              Telefone e WhatsApp{" "}
+            <p className="mt-3 flex flex-col gap-2">
               <a href={PHONE_TEL} className="underline">
-                {PHONE_DISPLAY}
+                Ligar {PHONE_DISPLAY}
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline">
+                WhatsApp {PHONE_DISPLAY}
               </a>
             </p>
             <ScheduleLink className="btn-primary mt-4">

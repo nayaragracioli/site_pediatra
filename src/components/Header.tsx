@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { CRM, DOCTOR_NAME, DOCTOR_ROLE } from "../data/site";
 import { SECTIONS } from "../data/sections";
-import ScheduleLink from "./ScheduleLink";
+import ScheduleLink, { WhatsAppIcon } from "./ScheduleLink";
 import SocialLinks from "./SocialLinks";
 import { useGoToSection } from "./useGoToSection";
 
@@ -50,7 +50,10 @@ export default function Header() {
       <div className="flex items-center justify-between gap-3 px-4 py-3.5 lg:hidden">
         <Brand onClick={() => visit("inicio")} compact />
         <div className="flex shrink-0 items-center gap-2">
-          <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs">Agendar consulta</ScheduleLink>
+          <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs">
+            <WhatsAppIcon className="h-4 w-4" />
+            Agendar consulta
+          </ScheduleLink>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 text-primary"
@@ -77,6 +80,7 @@ export default function Header() {
         </nav>
         <div className="justify-self-end">
           <ScheduleLink className="btn-primary whitespace-nowrap px-3 py-2 text-xs xl:px-4 xl:py-2.5 xl:text-sm">
+            <WhatsAppIcon className="h-4 w-4" />
             Agendar consulta
           </ScheduleLink>
         </div>

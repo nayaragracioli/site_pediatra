@@ -17,6 +17,7 @@ import {
   DOCTOR_ROLE,
   LATTES_URL,
   MAP_URL,
+  WHATSAPP_URL,
   PHONE_DISPLAY,
   PHONE_TEL,
   formatDate,
@@ -256,10 +257,12 @@ export default function Home() {
               </a>
               <h4 className="mt-6 font-serif text-2xl">Teleatendimento</h4>
               <p className="mt-2 text-lg text-ink">Atendimento para todas as regiões do Brasil</p>
-              <p className="mt-6 text-lg text-ink">
-                Telefone e WhatsApp{" "}
+              <p className="mt-6 flex flex-col gap-2 text-lg text-ink">
                 <a href={PHONE_TEL} className="text-primary underline">
-                  {PHONE_DISPLAY}
+                  Ligar {PHONE_DISPLAY}
+                </a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                  WhatsApp {PHONE_DISPLAY}
                 </a>
               </p>
               <SocialLinks className="mt-5" />
